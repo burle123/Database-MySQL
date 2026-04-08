@@ -60,5 +60,41 @@ VALUES
 (13,113, '2026-06-09', 400, 'cancelled'),
 (14,114, '2026-06-10', 980, 'complete');
 
+
 SELECT * FROM orders1;
 
+
+Create table IF NOT EXISTS products (
+product_id INT AUTO_INCREMENT,
+name VARCHAR(100) NOT NULL,
+sku CHAR(10) NOT NULL,
+price DECIMAL(10,2) CHECK (price > 0),
+stock INT DEFAULT 0,
+created_at DATE NOT NULL,
+weight FLOAT NOT NULL,
+description TEXT,
+
+CONSTRAINT pk_products PRIMARY KEY (product_id),
+CONSTRAINT fk_products_sku UNIQUE (sku)
+);
+
+
+DESC products;
+
+
+INSERT INTO products 
+(name, sku, price, stock, created_at, weight, description)
+VALUES
+('Laptop', 'SKU0000001', 55000.00, 10, '2026-04-01', 1.8, '15 inch business laptop'),
+('Smartphone', 'SKU0000002', 25000.00, 25, '2026-04-02', 0.45, 'Android smartphone with 8GB RAM'),
+('Headphones', 'SKU0000003', 3500.00, 50, '2026-04-03', 0.30, 'Wireless Bluetooth headphones'),
+('Keyboard', 'SKU0000004', 1200.00, 40, '2026-04-04', 0.70, 'Mechanical gaming keyboard'),
+('Mouse', 'SKU0000005', 800.00, 60, '2026-04-05', 0.20, 'Wireless optical mouse'),
+('Monitor', 'SKU0000006', 15000.00, 15, '2026-04-06', 3.5, '24 inch Full HD monitor'),
+('Printer', 'SKU0000007', 9500.00, 8, '2026-04-07', 5.2, 'All-in-one inkjet printer'),
+('Tablet', 'SKU0000008', 18000.00, 12, '2026-04-08', 0.60, '10 inch Android tablet'),
+('External HDD', 'SKU0000009', 5000.00, 30, '2026-04-09', 0.25, '1TB external hard drive'),
+('Router', 'SKU0000010', 2200.00, 20, '2026-04-10', 0.40, 'Dual band WiFi router');
+
+
+select * from products;
