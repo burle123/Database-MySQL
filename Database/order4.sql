@@ -1,0 +1,34 @@
+USE ukg;
+SHOW TABLES;
+
+DROP TABLE IF EXISTS order4;
+
+CREATE TABLE IF NOT EXISTS order4(
+	o_id INT,
+	c_id INT NOT NULL,
+	amount DECIMAL (10,2),
+
+	CONSTRAINT pk_order4 PRIMARY KEY (o_id),
+	CONSTRAINT fk_order4 FOREIGN KEY (c_id)REFERENCES customer3(c_id)
+	ON DELETE CASCADE 
+	ON UPDATE CASCADE
+);
+
+DESC order4;
+
+SELECT * FROM order4;
+
+
+INSERT INTO order4 VALUES 
+(101, 1, 5000),
+(102, 2, 3000),
+(103, 1, 2000),
+(104, 3, 4500),
+(105, 5, 6000),
+(106, 4, 3500),
+(107, 1, 1500),
+(108, 4, 8000);
+
+
+
+SELECT * FROM order4;

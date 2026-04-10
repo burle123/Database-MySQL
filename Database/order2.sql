@@ -1,0 +1,31 @@
+USE ukg;
+SHOW TABLES;
+
+DROP TABLE IF EXISTS order2;
+
+CREATE TABLE IF NOT EXISTS order2(
+	o_id INT AUTO_INCREMENT,
+	c_id INT NOT NULL,
+	amount DECIMAL (10,2),
+
+	CONSTRAINT pk_order2 PRIMARY KEY (o_id)
+);
+
+DESC order2;
+
+SELECT * FROM order2;
+
+
+INSERT INTO order2 VALUES 
+(101, 1, 5000),
+(102, 2, 3000),
+(103, 1, 2000),
+(104, 3, 4500),
+(105, 5, 6000),
+(106, 6, 3500),
+(107, 1, 1500),
+(108, 12, 8000);
+
+
+
+SELECT * FROM order2;
